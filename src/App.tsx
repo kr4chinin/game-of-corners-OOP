@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import BoardComponent from './components/board/BoardComponent'
+import StatusBar from './components/status-bar/StatusBar'
 import { Board } from './models/Board'
 import { Colors } from './models/Colors'
 import { Player } from './models/Player'
+import './styles/App.scss'
 
 const App = () => {
 	const [board, setBoard] = useState(new Board())
@@ -31,13 +33,16 @@ const App = () => {
 	}
 
 	return (
-		<div>
+		<div className='global-container'>
 			<BoardComponent
 				board={board}
 				setBoard={setBoard}
 				currentPlayer={currentPlayer}
 				swapPlayer={swapPlayer}
 			/>
+            <div className='info-container'>
+                <StatusBar currentPlayer={currentPlayer}/>
+            </div>
 		</div>
 	)
 }

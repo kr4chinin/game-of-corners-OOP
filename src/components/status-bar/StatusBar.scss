@@ -1,0 +1,13 @@
+.status-bar-container {
+    width: 380px;
+    height: 98px;
+    background-color: rgb(61, 176, 215);
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        font-size: 1.5rem;
+    }
+}
