@@ -6,6 +6,7 @@ import SquareComponent from '../square/SquareComponent'
 import { Square } from '../../models/Square'
 import { Player } from '../../models/Player'
 import { MoveLog } from '../../types/MoveLog'
+import { getCurrentTime } from '../../helpers/getCurrentTime'
 
 interface BoardComponentProps {
 	board: Board
@@ -35,7 +36,8 @@ const BoardComponent: FC<BoardComponentProps> = ({
             setCurrentMove({
                 x: square.x,
                 y: square.y,
-                player: currentPlayer
+                player: currentPlayer,
+                timestamp: getCurrentTime()
             })
 			setSelectedSquare(null)
 		} else {

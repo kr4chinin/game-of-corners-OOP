@@ -13,7 +13,7 @@ const MovesBar: FC<MovesBarProps> = ({ currentMove }) => {
 
 	useEffect(() => {
 		if (currentMove) {
-			setMoves([...moves, currentMove])
+			setMoves(prev => [...prev, currentMove])
 		}
 	}, [currentMove])
 
@@ -22,7 +22,7 @@ const MovesBar: FC<MovesBarProps> = ({ currentMove }) => {
 			{moves.map(move => (
 				<p key={uniqid()}>
 					{move.player?.color === Colors.BLACK ? '⚫️' : '⚪️'} {move.x}{' '}
-					{move.y}
+					{move.y} {move.timestamp}
 				</p>
 			))}
 		</div>
