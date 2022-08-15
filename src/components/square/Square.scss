@@ -4,12 +4,18 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	img {
+		width: 48px;
+		height: 48px;
+		position: relative;
+	}
 }
 
 .black {
-    background-color: rgb(76, 68, 68);
+	background-color: rgb(76, 68, 68);
 }
 
 .white {
-    background-color: rgb(197, 189, 172);
+	background-color: rgb(197, 189, 172);
 }

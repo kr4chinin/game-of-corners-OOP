@@ -12,6 +12,7 @@ const App = () => {
 	function start() {
 		const newBoard = new Board()
 		newBoard.initSquares()
+        newBoard.addFigures()
 		setBoard(newBoard)
 	}
 
