@@ -27,4 +27,21 @@ export class Square {
 		this.available = false
 		this.id = uniqid()
 	}
+
+    isEmpty(): boolean {
+		return this.figure === null
+	}
+
+	setFigure(figure: Figure) {
+		this.figure = figure
+		this.figure.square = this
+	}
+
+	moveFigure(target: Square) {
+		if (this.figure && this.figure.canMove(target)) {
+			this.figure.moveFigure(target)
+			target.setFigure(this.figure)
+			this.figure = null
+		}
+	}
 }

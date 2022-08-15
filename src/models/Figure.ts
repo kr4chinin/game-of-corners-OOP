@@ -29,4 +29,6 @@ export class Figure {
         if (target.figure) return false
 		return true
     }
+
+    moveFigure(target: Square) {}
 }

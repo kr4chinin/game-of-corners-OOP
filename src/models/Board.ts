@@ -19,6 +19,16 @@ export class Board {
 		}
 	}
 
+    public highlightCells(selectedCell: Square | null) {
+		for (let i = 0; i < this.squares.length; i++) {
+			const row = this.squares[i]
+			for (let j = 0; j < row.length; j++) {
+				const target = row[j]
+				target.available = !!selectedCell?.figure?.canMove(target)
+			}
+		}
+	}
+
 	public getCell(x: number, y: number) {
 		return this.squares[y][x]
 	}
