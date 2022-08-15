@@ -1,3 +1,5 @@
+@import '../../assets/fonts/ComicNeue/ComicNeue.css';
+
 .status-bar-container {
     width: 380px;
     height: 98px;
@@ -9,5 +11,6 @@
 
     p {
         font-size: 1.5rem;
+        font-family: 'Comic Neue', sans-serif;
     }
 }

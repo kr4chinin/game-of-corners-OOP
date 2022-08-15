@@ -1,8 +1,8 @@
 import { Square } from './Square'
 import { Colors } from './Colors'
 import { Figure, FigureNames } from './Figure'
-import blackLogo from '../assets/black-unit.png'
-import whiteLogo from '../assets/white-unit.png'
+import blackLogo from '../assets/img/black-unit.png'
+import whiteLogo from '../assets/img/white-unit.png'
 
 export class Unit extends Figure {
 	constructor(color: Colors, square: Square) {

@@ -1,3 +1,5 @@
+@import '../../assets/fonts/ComicNeue/ComicNeue.css';
+
 .moves-bar-container {
     width: 380px;
     height: 470px;
@@ -9,4 +11,10 @@
     border-radius: 17px;
     overflow: scroll;
     padding: 1rem;
+    font-size: 1.2rem;
+    font-family: 'Comic Neue', sans-serif;
+
+    .gray-text {
+        color: rgb(86, 86, 86);
+    }
 }

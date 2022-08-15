@@ -22,7 +22,7 @@ const MovesBar: FC<MovesBarProps> = ({ currentMove }) => {
 			{moves.map(move => (
 				<p key={uniqid()}>
 					{move.player?.color === Colors.BLACK ? '⚫️' : '⚪️'} {move.x}{' '}
-					{move.y} {move.timestamp}
+					{move.y} {'->'} <span className='gray-text'>{move.timestamp}</span>
 				</p>
 			))}
 		</div>
