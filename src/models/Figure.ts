@@ -24,4 +24,9 @@ export class Figure {
 		this.name = FigureNames.FIGURE
 		this.id = uniqid()
 	}
+
+    canMove(target: Square): boolean {
+        if (target.figure) return false
+		return true
+    }
 }
