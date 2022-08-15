@@ -31,14 +31,14 @@ const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard }) => {
 		setBoard(newBoard)
 	}, [setBoard, board])
 
-	const highlightCells = useCallback(() => {
+	const highlightSquares = useCallback(() => {
 		board.highlightSquares(selectedSquare)
 		updateBoard()
 	}, [board, selectedSquare, updateBoard])
 
 	useEffect(() => {
-		highlightCells()
-	}, [selectedSquare, highlightCells])
+		highlightSquares()
+	}, [selectedSquare, highlightSquares])
 
 	return (
 		<div className="board">
