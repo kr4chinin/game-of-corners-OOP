@@ -54,10 +54,12 @@ const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard, swapPlayer, 
 						<SquareComponent
 							key={square.id}
 							square={square}
+                            setSelectedSquare={setSelectedSquare}
 							selected={
 								square.x === selectedSquare?.x && square.y === selectedSquare?.y
 							}
 							pick={pick}
+                            currentPlayer={currentPlayer}
 						/>
 					))}
 				</React.Fragment>
