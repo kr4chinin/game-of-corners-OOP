@@ -27,7 +27,7 @@ export class Unit extends Figure {
 		if (
 			(dx === 2 || dx === -2) &&
 			dy === 0 &&
-			this.square.board.getCell(this.square.x + dx / 2, this.square.y).figure
+			this.square.board.getSquare(this.square.x + dx / 2, this.square.y).figure
 		)
 			return true
 
@@ -35,7 +35,7 @@ export class Unit extends Figure {
 		if (
 			(dy === 2 || dy === -2) &&
 			dx === 0 &&
-			this.square.board.getCell(this.square.x, this.square.y + dy / 2).figure
+			this.square.board.getSquare(this.square.x, this.square.y + dy / 2).figure
 		)
 			return true
 

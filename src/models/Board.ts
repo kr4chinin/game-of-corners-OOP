@@ -19,7 +19,7 @@ export class Board {
 		}
 	}
 
-    public highlightCells(selectedCell: Square | null) {
+    public highlightSquares(selectedCell: Square | null) {
 		for (let i = 0; i < this.squares.length; i++) {
 			const row = this.squares[i]
 			for (let j = 0; j < row.length; j++) {
@@ -29,7 +29,7 @@ export class Board {
 		}
 	}
 
-	public getCell(x: number, y: number) {
+	public getSquare(x: number, y: number) {
 		return this.squares[y][x]
 	}
 
@@ -42,12 +42,12 @@ export class Board {
 	addFigures() {
 		for (let y = 0; y < 4; y++) {
 			for (let x = 0; x < 4; x++) {
-				new Unit(Colors.WHITE, this.getCell(x, y))
+				new Unit(Colors.WHITE, this.getSquare(x, y))
 			}
 		}
 		for (let y = 4; y < 8; y++) {
 			for (let x = 4; x < 8; x++) {
-				new Unit(Colors.BLACK, this.getCell(x, y))
+				new Unit(Colors.BLACK, this.getSquare(x, y))
 			}
 		}
 	}
