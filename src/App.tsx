@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import BoardComponent from './components/board/BoardComponent'
+import MovesBar from './components/moves-bar/MovesBar'
 import StatusBar from './components/status-bar/StatusBar'
 import { Board } from './models/Board'
 import { Colors } from './models/Colors'
@@ -11,9 +12,10 @@ const App = () => {
 
 	const whitePlayer = useMemo(() => new Player(Colors.WHITE), [])
 	const blackPlayer = useMemo(() => new Player(Colors.BLACK), [])
-
 	const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null)
 
+    const [currentMove, setCurrentMove] = useState<{x: number, y: number} | null>(null)
+ 
 	useEffect(() => {
 		start()
 		setCurrentPlayer(whitePlayer)
@@ -39,9 +41,11 @@ const App = () => {
 				setBoard={setBoard}
 				currentPlayer={currentPlayer}
 				swapPlayer={swapPlayer}
+                setCurrentMove={setCurrentMove}
 			/>
             <div className='info-container'>
                 <StatusBar currentPlayer={currentPlayer}/>
+                <MovesBar currentMove={currentMove}/>
             </div>
 		</div>
 	)

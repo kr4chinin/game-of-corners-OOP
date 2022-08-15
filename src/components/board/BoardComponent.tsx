@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Board.scss'
 import { FC } from 'react'
 import { Board } from '../../models/Board'
@@ -11,13 +11,15 @@ interface BoardComponentProps {
 	setBoard: (board: Board) => void
 	currentPlayer: Player | null
 	swapPlayer: () => void
+    setCurrentMove: (currentMove: {x: number, y: number} | null) => void
 }
 
 const BoardComponent: FC<BoardComponentProps> = ({
 	board,
 	setBoard,
 	swapPlayer,
-	currentPlayer
+	currentPlayer,
+    setCurrentMove
 }) => {
 	const [selectedSquare, setSelectedSquare] = useState<Square | null>(null)
 
@@ -29,6 +31,10 @@ const BoardComponent: FC<BoardComponentProps> = ({
 		) {
 			swapPlayer()
 			selectedSquare.moveFigure(square)
+            setCurrentMove({
+                x: square.x,
+                y: square.y
+            })
 			setSelectedSquare(null)
 		} else {
 			if (square.figure?.color === currentPlayer?.color) {
@@ -37,19 +43,19 @@ const BoardComponent: FC<BoardComponentProps> = ({
 		}
 	}
 
-	const updateBoard = useCallback(() => {
+	const updateBoard = () => {
 		const newBoard = board.getCopyBoard()
 		setBoard(newBoard)
-	}, [setBoard, board])
+	}
 
-	const highlightSquares = useCallback(() => {
+	const highlightSquares = () => {
 		board.highlightSquares(selectedSquare)
 		updateBoard()
-	}, [board, selectedSquare, updateBoard])
+	}
 
 	useEffect(() => {
 		highlightSquares()
-	}, [selectedSquare, highlightSquares])
+	}, [selectedSquare])
 
 	return (
 		<div className='board-frame'>
