@@ -4,13 +4,16 @@ import { FC } from 'react'
 import { Board } from '../../models/Board'
 import SquareComponent from '../square/SquareComponent'
 import { Square } from '../../models/Square'
+import { Player } from '../../models/Player'
 
 interface BoardComponentProps {
 	board: Board
 	setBoard: (board: Board) => void
+    currentPlayer: Player | null
+	swapPlayer: () => void
 }
 
-const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard }) => {
+const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard, swapPlayer, currentPlayer }) => {
 	const [selectedSquare, setSelectedSquare] = useState<Square | null>(null)
 
 	function pick(square: Square) {
@@ -19,10 +22,13 @@ const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard }) => {
 			selectedSquare !== square &&
 			selectedSquare.figure?.canMove(square)
 		) {
+			swapPlayer()
 			selectedSquare.moveFigure(square)
 			setSelectedSquare(null)
 		} else {
-			setSelectedSquare(square)
+			if (square.figure?.color === currentPlayer?.color) {
+				setSelectedSquare(square)
+			}
 		}
 	}
 
