@@ -7,13 +7,15 @@ import { Square } from '../../models/Square'
 import { Player } from '../../models/Player'
 import { MoveLog } from '../../types/MoveLog'
 import { getCurrentTime } from '../../helpers/getCurrentTime'
+import uniqid from 'uniqid'
+import boardCoordinates from '../../helpers/boardCoordinates'
 
 interface BoardComponentProps {
 	board: Board
 	setBoard: (board: Board) => void
 	currentPlayer: Player | null
 	swapPlayer: () => void
-    setCurrentMove: (currentMove: MoveLog | null) => void
+	setCurrentMove: (currentMove: MoveLog | null) => void
 }
 
 const BoardComponent: FC<BoardComponentProps> = ({
@@ -21,7 +23,7 @@ const BoardComponent: FC<BoardComponentProps> = ({
 	setBoard,
 	swapPlayer,
 	currentPlayer,
-    setCurrentMove
+	setCurrentMove
 }) => {
 	const [selectedSquare, setSelectedSquare] = useState<Square | null>(null)
 
@@ -33,12 +35,12 @@ const BoardComponent: FC<BoardComponentProps> = ({
 		) {
 			swapPlayer()
 			selectedSquare.moveFigure(square)
-            setCurrentMove({
-                x: square.x,
-                y: square.y,
-                player: currentPlayer,
-                timestamp: getCurrentTime()
-            })
+			setCurrentMove({
+				x: square.x,
+				y: square.y,
+				player: currentPlayer,
+				timestamp: getCurrentTime()
+			})
 			setSelectedSquare(null)
 		} else {
 			if (square.figure?.color === currentPlayer?.color) {
@@ -62,24 +64,36 @@ const BoardComponent: FC<BoardComponentProps> = ({
 	}, [selectedSquare])
 
 	return (
-		<div className='board-frame'>
-			<div className="board">
-				{board.squares.map((row, index) => (
-					<React.Fragment key={index}>
-						{row.map(square => (
-							<SquareComponent
-								key={square.id}
-								square={square}
-								setSelectedSquare={setSelectedSquare}
-								selected={
-									square.x === selectedSquare?.x &&
-									square.y === selectedSquare?.y
-								}
-								pick={pick}
-								currentPlayer={currentPlayer}
-							/>
-						))}
-					</React.Fragment>
+		<div className="board-frame">
+			<div className="board-frame-helper">
+				<div className="board-digits">
+					{boardCoordinates.digits.map(digit => (
+						<p key={uniqid()}>{digit}</p>
+					))}
+				</div>
+				<div className="board">
+					{board.squares.map((row, index) => (
+						<React.Fragment key={index}>
+							{row.map(square => (
+								<SquareComponent
+									key={square.id}
+									square={square}
+									setSelectedSquare={setSelectedSquare}
+									selected={
+										square.x === selectedSquare?.x &&
+										square.y === selectedSquare?.y
+									}
+									pick={pick}
+									currentPlayer={currentPlayer}
+								/>
+							))}
+						</React.Fragment>
+					))}
+				</div>
+			</div>
+			<div className="board-letters">
+				{boardCoordinates.letters.map(letter => (
+					<p key={uniqid()}>{letter}</p>
 				))}
 			</div>
 		</div>

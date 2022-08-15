@@ -1,12 +1,17 @@
 .board-frame {
-	width: 64px * 9 + 3;
-	height: 64px * 9 + 3;
+	width: 64px * 9;
+	height: 64px * 9;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgb(186, 155, 96);
-    border: 3px solid black;
+    flex-direction: column;
     margin: 40px;
+
+    .board-frame-helper {
+        display: flex;
+        width: fit-content;
+        justify-content: space-between;
+    }
 
 	.board {
 		width: 64px * 8;
@@ -14,4 +19,25 @@
 		display: flex;
 		flex-wrap: wrap;
 	}
+
+    .board-digits {
+        height: 64px * 8;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-right: 1rem;
+        font-size: large;
+    }
+
+    .board-letters {
+        width: 64px * 8;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+        font-size: large;
+    }
 }
