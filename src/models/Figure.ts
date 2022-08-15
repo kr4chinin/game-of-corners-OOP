@@ -1,5 +1,5 @@
-import { Colors } from "./Colors"
-import { Square } from "./Square"
+import { Colors } from './Colors'
+import { Square } from './Square'
 import logo from '../assets/white-unit.png'
 import uniqid from 'uniqid'
 
@@ -9,13 +9,13 @@ export enum FigureNames {
 }
 
 export class Figure {
-    color: Colors
+	color: Colors
 	logo: typeof logo | null
 	square: Square
 	name: FigureNames
 	id: string
 
-    constructor(color: Colors, square: Square) {
+	constructor(color: Colors, square: Square) {
 		this.color = color
 		this.square = square
 
@@ -25,10 +25,10 @@ export class Figure {
 		this.id = uniqid()
 	}
 
-    canMove(target: Square): boolean {
-        if (target.figure) return false
+	canMove(target: Square): boolean {
+		if (target.figure) return false
 		return true
-    }
+	}
 
-    moveFigure(target: Square) {}
+	moveFigure(target: Square) {}
 }

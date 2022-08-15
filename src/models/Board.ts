@@ -19,7 +19,7 @@ export class Board {
 		}
 	}
 
-    public highlightSquares(selectedCell: Square | null) {
+	public highlightSquares(selectedCell: Square | null) {
 		for (let i = 0; i < this.squares.length; i++) {
 			const row = this.squares[i]
 			for (let j = 0; j < row.length; j++) {

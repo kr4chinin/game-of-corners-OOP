@@ -8,7 +8,7 @@ interface SquareComponentProps {
 	selected: boolean
 	pick: (square: Square) => void
 	setSelectedSquare: (square: Square | null) => void
-    currentPlayer: Player | null
+	currentPlayer: Player | null
 }
 
 const SquareComponent: FC<SquareComponentProps> = ({
@@ -16,9 +16,8 @@ const SquareComponent: FC<SquareComponentProps> = ({
 	selected,
 	pick,
 	setSelectedSquare,
-    currentPlayer
+	currentPlayer
 }) => {
-
 	function handleDragOver(e: React.DragEvent<HTMLDivElement>) {
 		e.preventDefault()
 	}
@@ -31,9 +30,9 @@ const SquareComponent: FC<SquareComponentProps> = ({
 	}
 
 	function handleDragStart(square: Square) {
-        if (square.figure?.color === currentPlayer?.color) {
-            setSelectedSquare(square)
-        }
+		if (square.figure?.color === currentPlayer?.color) {
+			setSelectedSquare(square)
+		}
 	}
 
 	function handleDragEnd() {
@@ -45,7 +44,7 @@ const SquareComponent: FC<SquareComponentProps> = ({
 			className={`square ${square.color} ${selected && 'selected'}`}
 			style={{ background: square.available && square.figure ? 'green' : '' }}
 			onClick={() => pick(square)}
-            onDragOver={e => handleDragOver(e)}
+			onDragOver={e => handleDragOver(e)}
 			onDrop={e => handleDrop(e, square)}
 		>
 			{square.available && !square.figure && <div className="available" />}

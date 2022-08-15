@@ -7,24 +7,24 @@ import { Player } from './models/Player'
 const App = () => {
 	const [board, setBoard] = useState(new Board())
 
-    const whitePlayer = useMemo(() => new Player(Colors.WHITE), [])
+	const whitePlayer = useMemo(() => new Player(Colors.WHITE), [])
 	const blackPlayer = useMemo(() => new Player(Colors.BLACK), [])
 
-    const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null)
+	const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null)
 
-    useEffect(() => {
-        start()
-        setCurrentPlayer(whitePlayer)
-    }, [whitePlayer])
+	useEffect(() => {
+		start()
+		setCurrentPlayer(whitePlayer)
+	}, [whitePlayer])
 
 	function start() {
 		const newBoard = new Board()
 		newBoard.initSquares()
-        newBoard.addFigures()
+		newBoard.addFigures()
 		setBoard(newBoard)
 	}
 
-    function swapPlayer() {
+	function swapPlayer() {
 		setCurrentPlayer(
 			currentPlayer?.color === Colors.WHITE ? blackPlayer : whitePlayer
 		)
@@ -32,7 +32,12 @@ const App = () => {
 
 	return (
 		<div>
-			<BoardComponent board={board} setBoard={setBoard} currentPlayer={currentPlayer} swapPlayer={swapPlayer}/>
+			<BoardComponent
+				board={board}
+				setBoard={setBoard}
+				currentPlayer={currentPlayer}
+				swapPlayer={swapPlayer}
+			/>
 		</div>
 	)
 }

@@ -9,11 +9,16 @@ import { Player } from '../../models/Player'
 interface BoardComponentProps {
 	board: Board
 	setBoard: (board: Board) => void
-    currentPlayer: Player | null
+	currentPlayer: Player | null
 	swapPlayer: () => void
 }
 
-const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard, swapPlayer, currentPlayer }) => {
+const BoardComponent: FC<BoardComponentProps> = ({
+	board,
+	setBoard,
+	swapPlayer,
+	currentPlayer
+}) => {
 	const [selectedSquare, setSelectedSquare] = useState<Square | null>(null)
 
 	function pick(square: Square) {
@@ -54,12 +59,12 @@ const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard, swapPlayer, 
 						<SquareComponent
 							key={square.id}
 							square={square}
-                            setSelectedSquare={setSelectedSquare}
+							setSelectedSquare={setSelectedSquare}
 							selected={
 								square.x === selectedSquare?.x && square.y === selectedSquare?.y
 							}
 							pick={pick}
-                            currentPlayer={currentPlayer}
+							currentPlayer={currentPlayer}
 						/>
 					))}
 				</React.Fragment>
