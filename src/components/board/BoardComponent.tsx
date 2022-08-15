@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Board.scss'
 import { FC } from 'react'
 import { Board } from '../../models/Board'
 import SquareComponent from '../square/SquareComponent'
+import { Square } from '../../models/Square'
 
 interface BoardComponentProps {
 	board: Board
@@ -10,13 +11,35 @@ interface BoardComponentProps {
 }
 
 const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard }) => {
+	const [selectedSquare, setSelectedSquare] = useState<Square | null>(null)
+
+    function pick(square: Square) {
+		if (
+			selectedSquare &&
+			selectedSquare !== square &&
+			selectedSquare.figure?.canMove(square)
+		) {
+			selectedSquare.moveFigure(square)
+			setSelectedSquare(null)
+		} else {
+			setSelectedSquare(square)
+		}
+	}
+
 	return (
 		<div className="board">
 			{board.squares.map((row, index) => (
 				<React.Fragment key={index}>
-					{row.map(square => 
-						<SquareComponent key={square.id} square={square}/>
-					)}
+					{row.map(square => (
+						<SquareComponent
+							key={square.id}
+							square={square}
+							selected={
+								square.x === selectedSquare?.x && square.y === selectedSquare?.y
+							}
+                            pick={pick}
+						/>
+					))}
 				</React.Fragment>
 			))}
 		</div>
