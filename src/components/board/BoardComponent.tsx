@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './Board.scss'
 import { FC } from 'react'
 import { Board } from '../../models/Board'
@@ -13,7 +13,7 @@ interface BoardComponentProps {
 const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard }) => {
 	const [selectedSquare, setSelectedSquare] = useState<Square | null>(null)
 
-    function pick(square: Square) {
+	function pick(square: Square) {
 		if (
 			selectedSquare &&
 			selectedSquare !== square &&
@@ -26,6 +26,20 @@ const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard }) => {
 		}
 	}
 
+	const updateBoard = useCallback(() => {
+		const newBoard = board.getCopyBoard()
+		setBoard(newBoard)
+	}, [setBoard, board])
+
+	const highlightCells = useCallback(() => {
+		board.highlightSquares(selectedSquare)
+		updateBoard()
+	}, [board, selectedSquare, updateBoard])
+
+	useEffect(() => {
+		highlightCells()
+	}, [selectedSquare, highlightCells])
+
 	return (
 		<div className="board">
 			{board.squares.map((row, index) => (
@@ -37,7 +51,7 @@ const BoardComponent: FC<BoardComponentProps> = ({ board, setBoard }) => {
 							selected={
 								square.x === selectedSquare?.x && square.y === selectedSquare?.y
 							}
-                            pick={pick}
+							pick={pick}
 						/>
 					))}
 				</React.Fragment>
