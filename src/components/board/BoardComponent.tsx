@@ -5,13 +5,14 @@ import { Board } from '../../models/Board'
 import SquareComponent from '../square/SquareComponent'
 import { Square } from '../../models/Square'
 import { Player } from '../../models/Player'
+import { MoveLog } from '../../types/MoveLog'
 
 interface BoardComponentProps {
 	board: Board
 	setBoard: (board: Board) => void
 	currentPlayer: Player | null
 	swapPlayer: () => void
-    setCurrentMove: (currentMove: {x: number, y: number} | null) => void
+    setCurrentMove: (currentMove: MoveLog | null) => void
 }
 
 const BoardComponent: FC<BoardComponentProps> = ({
@@ -33,7 +34,8 @@ const BoardComponent: FC<BoardComponentProps> = ({
 			selectedSquare.moveFigure(square)
             setCurrentMove({
                 x: square.x,
-                y: square.y
+                y: square.y,
+                player: currentPlayer
             })
 			setSelectedSquare(null)
 		} else {

@@ -6,6 +6,7 @@ import { Board } from './models/Board'
 import { Colors } from './models/Colors'
 import { Player } from './models/Player'
 import './styles/App.scss'
+import { MoveLog } from './types/MoveLog'
 
 const App = () => {
 	const [board, setBoard] = useState(new Board())
@@ -14,7 +15,7 @@ const App = () => {
 	const blackPlayer = useMemo(() => new Player(Colors.BLACK), [])
 	const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null)
 
-    const [currentMove, setCurrentMove] = useState<{x: number, y: number} | null>(null)
+    const [currentMove, setCurrentMove] = useState<MoveLog | null>(null)
  
 	useEffect(() => {
 		start()

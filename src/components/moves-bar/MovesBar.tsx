@@ -1,16 +1,32 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
+import { MoveLog } from '../../types/MoveLog'
 import './MovesBar.scss'
+import uniqid from 'uniqid'
+import { Colors } from '../../models/Colors'
 
 interface MovesBarProps {
-    currentMove: {x: number, y: number} | null
+	currentMove: MoveLog | null
 }
 
-const MovesBar: FC<MovesBarProps> = ({currentMove}) => {
-    return (
-        <div className='moves-bar-container'>
-            <p>{currentMove?.x} {currentMove?.y}</p>
-        </div>
-    )
+const MovesBar: FC<MovesBarProps> = ({ currentMove }) => {
+	const [moves, setMoves] = useState<MoveLog[]>([])
+
+	useEffect(() => {
+		if (currentMove) {
+			setMoves([...moves, currentMove])
+		}
+	}, [currentMove])
+
+	return (
+		<div className="moves-bar-container">
+			{moves.map(move => (
+				<p key={uniqid()}>
+					{move.player?.color === Colors.BLACK ? '⚫️' : '⚪️'} {move.x}{' '}
+					{move.y}
+				</p>
+			))}
+		</div>
+	)
 }
 
 export default MovesBar
