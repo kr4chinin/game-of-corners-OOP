@@ -52,23 +52,26 @@ const BoardComponent: FC<BoardComponentProps> = ({
 	}, [selectedSquare, highlightSquares])
 
 	return (
-		<div className="board">
-			{board.squares.map((row, index) => (
-				<React.Fragment key={index}>
-					{row.map(square => (
-						<SquareComponent
-							key={square.id}
-							square={square}
-							setSelectedSquare={setSelectedSquare}
-							selected={
-								square.x === selectedSquare?.x && square.y === selectedSquare?.y
-							}
-							pick={pick}
-							currentPlayer={currentPlayer}
-						/>
-					))}
-				</React.Fragment>
-			))}
+		<div className='board-frame'>
+			<div className="board">
+				{board.squares.map((row, index) => (
+					<React.Fragment key={index}>
+						{row.map(square => (
+							<SquareComponent
+								key={square.id}
+								square={square}
+								setSelectedSquare={setSelectedSquare}
+								selected={
+									square.x === selectedSquare?.x &&
+									square.y === selectedSquare?.y
+								}
+								pick={pick}
+								currentPlayer={currentPlayer}
+							/>
+						))}
+					</React.Fragment>
+				))}
+			</div>
 		</div>
 	)
 }

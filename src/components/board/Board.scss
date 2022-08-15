@@ -1,6 +1,17 @@
-.board {
-	width: calc(64px * 8);
-	height: calc(64px * 8);
+.board-frame {
+	width: 64px * 9 + 3;
+	height: 64px * 9 + 3;
 	display: flex;
-	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(186, 155, 96);
+    border: 3px solid black;
+    margin: 40px;
+
+	.board {
+		width: 64px * 8;
+		height: 64px * 8;
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
