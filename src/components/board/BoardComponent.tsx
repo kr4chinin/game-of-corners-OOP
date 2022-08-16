@@ -42,9 +42,11 @@ const BoardComponent: FC<BoardComponentProps> = ({
 				timestamp: getCurrentTime()
 			})
 			setSelectedSquare(null)
+            board.checkWin()
 		} else {
 			if (square.figure?.color === currentPlayer?.color) {
 				setSelectedSquare(square)
+                board.checkWin()
 			}
 		}
 	}

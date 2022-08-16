@@ -51,4 +51,28 @@ export class Board {
 			}
 		}
 	}
+
+	checkWin() {
+		let blackCounter = 0
+		let whiteCounter = 0
+
+		for (let y = 0; y < 4; y++) {
+			for (let x = 0; x < 4; x++) {
+				if (this.getSquare(x, y).figure?.color === Colors.BLACK) {
+					blackCounter++
+				}
+			}
+		}
+
+		for (let y = 4; y < 8; y++) {
+			for (let x = 4; x < 8; x++) {
+				if (this.getSquare(x, y).figure?.color === Colors.WHITE) {
+					whiteCounter++
+				}
+			}
+		}
+
+        if (blackCounter === 16) console.log('Black won!')
+        if (whiteCounter === 16) console.log('White won!')
+	}
 }
