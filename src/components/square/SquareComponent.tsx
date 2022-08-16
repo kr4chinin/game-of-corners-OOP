@@ -22,7 +22,7 @@ const SquareComponent: FC<SquareComponentProps> = ({
 		e.preventDefault()
 	}
 
-	function handleDrop(e: any, square: Square) {
+	function handleDrop(e: React.DragEvent<HTMLDivElement>, square: Square) {
 		if (square.available) {
 			e.preventDefault()
 			pick(square)
@@ -42,7 +42,6 @@ const SquareComponent: FC<SquareComponentProps> = ({
 	return (
 		<div
 			className={`square ${square.color} ${selected && 'selected'}`}
-			style={{ background: square.available && square.figure ? 'green' : '' }}
 			onClick={() => pick(square)}
 			onDragOver={e => handleDragOver(e)}
 			onDrop={e => handleDrop(e, square)}

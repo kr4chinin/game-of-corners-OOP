@@ -15,15 +15,15 @@ interface MovesBarProps {
 const MovesBar: FC<MovesBarProps> = ({ currentMove }) => {
 	const [moves, setMoves] = useState<MoveLog[]>([])
 
+	const [list] = useAutoAnimate<HTMLDivElement>()
+
+	const scrollTo = useRef<HTMLDivElement>(null)
+
 	useEffect(() => {
 		if (currentMove) {
 			setMoves(prev => [...prev, currentMove])
 		}
 	}, [currentMove])
-
-	const [list] = useAutoAnimate<HTMLDivElement>()
-
-	const scrollTo = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		scrollTo?.current?.scrollIntoView(true)
