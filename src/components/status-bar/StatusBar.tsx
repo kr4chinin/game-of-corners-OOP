@@ -1,4 +1,3 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { FC } from 'react'
 import { Colors } from '../../models/Colors'
 import { Player } from '../../models/Player'
