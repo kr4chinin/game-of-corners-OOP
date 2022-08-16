@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { MoveLog } from '../../types/MoveLog'
 import './MovesBar.scss'
 import { Colors } from '../../models/Colors'
@@ -23,6 +23,12 @@ const MovesBar: FC<MovesBarProps> = ({ currentMove }) => {
 
 	const [list] = useAutoAnimate<HTMLDivElement>()
 
+	const scrollTo = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		scrollTo?.current?.scrollIntoView(true)
+	}, [moves])
+
 	return (
 		<div className="moves-bar-container" ref={list}>
 			{moves.map((move, index) => (
@@ -32,6 +38,7 @@ const MovesBar: FC<MovesBarProps> = ({ currentMove }) => {
 					<span className="gray-text">{move.timestamp}</span>
 				</p>
 			))}
+			<div ref={scrollTo} />
 		</div>
 	)
 }
