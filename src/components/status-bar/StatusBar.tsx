@@ -1,3 +1,4 @@
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { FC } from 'react'
 import { Colors } from '../../models/Colors'
 import { Player } from '../../models/Player'
@@ -10,11 +11,11 @@ interface StatusBarProps {
 const StatusBar: FC<StatusBarProps> = ({ currentPlayer }) => {
 	return (
 		<div className="status-bar-container">
-			<p>
-				{currentPlayer?.color === Colors.BLACK
-					? "⚫️ Black player's turn"
-					: "⚪️ White player's turn"}
-			</p>
+			{currentPlayer?.color === Colors.BLACK ? (
+				<p>⚫️ Black player's turn</p>
+			) : (
+				<p>⚪️ White player's turn</p>
+			)}
 		</div>
 	)
 }
