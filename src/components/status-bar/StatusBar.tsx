@@ -8,6 +8,7 @@ interface StatusBarProps {
 }
 
 const StatusBar: FC<StatusBarProps> = ({currentPlayer}) => {
+
     return (
         <div className='status-bar-container'>
             <p>{currentPlayer?.color === Colors.BLACK ? '⚫️ Black player\'s turn' : '⚪️ White player\'s turn'}</p>

@@ -7,14 +7,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background-color: rgb(61, 176, 215); 
+    background-color: rgb(197, 189, 172);
     border-radius: 17px;
     overflow: scroll;
-    padding: 1rem;
+    padding: 2rem;
     font-size: 1.2rem;
     font-family: 'Comic Neue', sans-serif;
 
-    .gray-text {
-        color: rgb(86, 86, 86);
+    p {
+        width: 200px;
+        text-align: left;
+
+        .gray-text {
+            color: rgb(86, 86, 86);
+        }
     }
 }
