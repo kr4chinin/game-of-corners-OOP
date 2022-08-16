@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import BoardComponent from './components/board/BoardComponent'
+import WelcomeModal from './components/modals/welcome-modal/WelcomeModal'
 import MovesBar from './components/moves-bar/MovesBar'
 import StatusBar from './components/status-bar/StatusBar'
 import { Board } from './models/Board'
@@ -16,6 +17,8 @@ const App = () => {
 	const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null)
 
 	const [currentMove, setCurrentMove] = useState<MoveLog | null>(null)
+
+    const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true)
 
 	useEffect(() => {
 		start()
@@ -38,6 +41,7 @@ const App = () => {
 	return (
 		<div className="global-container">
 			<div className="elements-container">
+                <WelcomeModal isOpen={isWelcomeModalOpen} setIsOpen={setIsWelcomeModalOpen} />
 				<BoardComponent
 					board={board}
 					setBoard={setBoard}

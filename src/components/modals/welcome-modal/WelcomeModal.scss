@@ -1,0 +1,96 @@
+@import '../../../assets/fonts/ComicNeue/ComicNeue.scss';
+
+.modal {
+	opacity: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	inset: 0;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.511);
+	transition: 0.6s;
+	pointer-events: none;
+}
+
+.modal__content {
+	font-family: 'Comic Neue', sans-serif;
+	box-sizing: content-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	opacity: 0;
+	width: 610px;
+	height: fit-content;
+	background: white;
+	border-radius: 10px;
+	transform: scale(0.5);
+	padding-bottom: 20px;
+	transition: 0.6s;
+
+	.modal__header {
+		width: 610px;
+		height: 90px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 2rem;
+		padding: 1.5rem;
+		font-weight: bold;
+
+		.close-cross {
+			font-size: 1.5rem;
+            transition: 0.5s;
+		}
+
+        .close-cross:hover {
+            cursor: pointer;
+            transform: scale(1.15);
+        }
+	}
+
+	hr {
+		width: inherit;
+		height: 2px;
+		color: darkslategrey;
+	}
+
+	.modal__body {
+		width: 610px;
+		height: fit-content;
+		padding: 1.5rem;
+
+		ul {
+			li {
+                margin-left: 0.5rem;
+                margin-top: 0.5rem;
+				.blue {
+					color: blue;
+				}
+
+                .red {
+                    color: red;
+                }
+			}
+		}
+
+        .closing-text {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+        }
+	}
+}
+
+.modal.active {
+	pointer-events: all;
+	opacity: 1;
+}
+
+.modal__content.active {
+	opacity: 1;
+	font-size: large;
+	transform: scale(1);
+}
+
+
