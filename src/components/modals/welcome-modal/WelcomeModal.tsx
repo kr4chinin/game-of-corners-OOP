@@ -40,7 +40,8 @@ const WelcomeModal: FC<WelcomeModalProps> = ({ isOpen, setIsOpen }) => {
 					<ul>
 						<li>
 							You <span className="blue">goal</span> is to move all your units
-							to the enemy's corner, you can move forward / backwards or jump over 1 unit
+							to the enemy's corner, you can move forward / backwards or jump
+							over 1 unit
 						</li>
 						<li>
 							You can use <span className="blue">Drag</span> &amp;{' '}

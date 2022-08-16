@@ -1,10 +1,9 @@
 @import '../../../assets/fonts/ComicNeue/ComicNeue.scss';
+@import '../welcome-modal/WelcomeModal.scss';
 
 .win-modal {
+	@include flex-centered-content();
 	opacity: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	inset: 0;
 	position: fixed;
 	background: rgba(0, 0, 0, 0.511);
@@ -13,11 +12,9 @@
 }
 
 .win-modal__content {
+	@include flex-centered-content();
 	font-family: 'Comic Neue', sans-serif;
 	box-sizing: content-box;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	flex-direction: column;
 	position: fixed;
 	opacity: 0;
