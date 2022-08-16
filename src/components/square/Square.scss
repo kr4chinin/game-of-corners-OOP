@@ -1,3 +1,5 @@
+$highlight-color: #088e08;
+
 .square {
 	width: 64px;
 	height: 64px;
@@ -21,12 +23,12 @@
 }
 
 .selected {
-	background-color: rgb(17, 98, 17);
+	background-color: $highlight-color;
 }
 
 .available {
 	height: 12px;
 	width: 12px;
 	border-radius: 50%;
-	background-color: green;
+	background-color: $highlight-color;
 }
