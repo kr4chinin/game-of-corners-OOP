@@ -5,12 +5,19 @@
     align-items: center;
     justify-content: center;
 
-    .info-container {
-        display: flex;
-        flex-direction: column;
-        height: 64px * 9 + 3;
+    .elements-container {
         width: fit-content;
-        align-items: center;
-        justify-content: space-between;
+        height: fit-content;
+        display: flex;
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            height: 64px * 9 + 3;
+            width: fit-content;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
     }
 }

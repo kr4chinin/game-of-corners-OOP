@@ -15,8 +15,8 @@ const App = () => {
 	const blackPlayer = useMemo(() => new Player(Colors.BLACK), [])
 	const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null)
 
-    const [currentMove, setCurrentMove] = useState<MoveLog | null>(null)
- 
+	const [currentMove, setCurrentMove] = useState<MoveLog | null>(null)
+
 	useEffect(() => {
 		start()
 		setCurrentPlayer(whitePlayer)
@@ -36,18 +36,20 @@ const App = () => {
 	}
 
 	return (
-		<div className='global-container'>
-			<BoardComponent
-				board={board}
-				setBoard={setBoard}
-				currentPlayer={currentPlayer}
-				swapPlayer={swapPlayer}
-                setCurrentMove={setCurrentMove}
-			/>
-            <div className='info-container'>
-                <StatusBar currentPlayer={currentPlayer}/>
-                <MovesBar currentMove={currentMove}/>
-            </div>
+		<div className="global-container">
+			<div className="elements-container">
+				<BoardComponent
+					board={board}
+					setBoard={setBoard}
+					currentPlayer={currentPlayer}
+					swapPlayer={swapPlayer}
+					setCurrentMove={setCurrentMove}
+				/>
+				<div className="info-container">
+					<StatusBar currentPlayer={currentPlayer} />
+					<MovesBar currentMove={currentMove} />
+				</div>
+			</div>
 		</div>
 	)
 }
