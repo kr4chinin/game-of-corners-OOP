@@ -19,8 +19,8 @@ const App = () => {
 
 	const [currentMove, setCurrentMove] = useState<MoveLog | null>(null)
 
-    const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true)
-    const [isWinModalOpen, setIsWinModalOpen] = useState(false)
+	const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true)
+	const [isWinModalOpen, setIsWinModalOpen] = useState(false)
 
 	useEffect(() => {
 		start()
@@ -43,8 +43,16 @@ const App = () => {
 	return (
 		<div className="global-container">
 			<div className="elements-container">
-                <WinModal isOpen={isWinModalOpen} setIsOpen={setIsWinModalOpen} winner={board.winner} restart={start}/>
-                <WelcomeModal isOpen={isWelcomeModalOpen} setIsOpen={setIsWelcomeModalOpen} />
+				<WinModal
+					isOpen={isWinModalOpen}
+					setIsOpen={setIsWinModalOpen}
+					winner={board.winner}
+					restart={start}
+				/>
+				<WelcomeModal
+					isOpen={isWelcomeModalOpen}
+					setIsOpen={setIsWelcomeModalOpen}
+				/>
 				<BoardComponent
 					board={board}
 					setBoard={setBoard}

@@ -1,16 +1,16 @@
 @import '../../assets/fonts/ComicNeue/ComicNeue.scss';
 
 .status-bar-container {
-    width: 380px;
-    height: 98px;
-    background-color: rgb(197, 189, 172);
-    border-radius: 17px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	width: 380px;
+	height: 98px;
+	background-color: rgb(197, 189, 172);
+	border-radius: 17px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    p {
-        font-size: 1.5rem;
-        font-family: 'Comic Neue', sans-serif;
-    }
+	p {
+		font-size: 1.5rem;
+		font-family: 'Comic Neue', sans-serif;
+	}
 }

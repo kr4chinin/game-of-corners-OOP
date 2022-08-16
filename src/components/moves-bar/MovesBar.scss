@@ -1,25 +1,25 @@
 @import '../../assets/fonts/ComicNeue/ComicNeue.scss';
 
 .moves-bar-container {
-    width: 380px;
-    height: 458px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: rgb(197, 189, 172);
-    border-radius: 17px;
-    overflow: scroll;
-    padding: 2rem;
-    font-size: 1.2rem;
-    font-family: 'Comic Neue', sans-serif;
+	width: 380px;
+	height: 458px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: rgb(197, 189, 172);
+	border-radius: 17px;
+	overflow: scroll;
+	padding: 2rem;
+	font-size: 1.2rem;
+	font-family: 'Comic Neue', sans-serif;
 
-    p {
-        width: 200px;
-        text-align: left;
+	p {
+		width: 200px;
+		text-align: left;
 
-        .gray-text {
-            color: rgb(86, 86, 86);
-        }
-    }
+		.gray-text {
+			color: rgb(86, 86, 86);
+		}
+	}
 }

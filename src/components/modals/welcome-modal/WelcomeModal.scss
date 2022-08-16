@@ -41,13 +41,13 @@
 
 		.close-cross {
 			font-size: 1.5rem;
-            transition: 0.5s;
+			transition: 0.5s;
 		}
 
-        .close-cross:hover {
-            cursor: pointer;
-            transform: scale(1.15);
-        }
+		.close-cross:hover {
+			cursor: pointer;
+			transform: scale(1.15);
+		}
 	}
 
 	hr {
@@ -63,22 +63,22 @@
 
 		ul {
 			li {
-                margin-left: 0.5rem;
-                margin-top: 0.5rem;
+				margin-left: 0.5rem;
+				margin-top: 0.5rem;
 				.blue {
 					color: blue;
 				}
 
-                .red {
-                    color: red;
-                }
+				.red {
+					color: red;
+				}
 			}
 		}
 
-        .closing-text {
-            font-size: 1.5rem;
-            margin-top: 1.5rem;
-        }
+		.closing-text {
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+		}
 	}
 }
 
@@ -92,5 +92,3 @@
 	font-size: large;
 	transform: scale(1);
 }
-
-

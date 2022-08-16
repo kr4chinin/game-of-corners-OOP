@@ -16,9 +16,9 @@ const WelcomeModal: FC<WelcomeModalProps> = ({ isOpen, setIsOpen }) => {
 		return () => document.body.removeEventListener('keydown', closeOnEscapeKey)
 	}, [setIsOpen])
 
-    function handleClose() {
-        setIsOpen(false)
-    }
+	function handleClose() {
+		setIsOpen(false)
+	}
 
 	return createPortal(
 		<div
@@ -31,7 +31,9 @@ const WelcomeModal: FC<WelcomeModalProps> = ({ isOpen, setIsOpen }) => {
 			>
 				<div className="modal__header">
 					<p>Welcome to The Game Of Corners!</p>
-					<p className="close-cross" onClick={handleClose}>❌</p>
+					<p className="close-cross" onClick={handleClose}>
+						❌
+					</p>
 				</div>
 				<hr className="breaking-line" />
 				<div className="modal__body">
