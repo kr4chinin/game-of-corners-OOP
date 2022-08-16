@@ -1,0 +1,89 @@
+@import '../../../assets/fonts/ComicNeue/ComicNeue.scss';
+
+.win-modal {
+	opacity: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	inset: 0;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.511);
+	transition: 0.6s;
+	pointer-events: none;
+}
+
+.win-modal__content {
+	font-family: 'Comic Neue', sans-serif;
+	box-sizing: content-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	opacity: 0;
+	width: 490px;
+	height: 140px;
+	background: white;
+	border-radius: 10px;
+	transform: scale(0.5);
+	padding-bottom: 1.3rem;
+	transition: 0.6s;
+
+	.win-modal-body {
+		font-size: 1.5rem;
+	}
+
+	.warning-text {
+		color: rgb(201, 134, 9);
+	}
+
+    .close-icon-container {
+        height: 30px;
+        padding-left: 425px;
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+    
+        .close-icon {
+            font-size: 1.3rem;
+            transition: 0.5s;
+        }
+    
+        .close-icon:hover {
+            cursor: pointer;
+            transform: scale(1.15);
+        }
+    }
+
+    .restart-message {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+
+        .restart-btn {
+            width: fit-content;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            border-radius: 1em;
+            background-color: rgb(201, 134, 9);
+            color: white;
+            transition: 0.5s;
+        }
+
+        .restart-btn:hover {
+            cursor: pointer;
+            background-color: rgba(201, 134, 9, 0.714);
+        }
+    }
+}
+
+.win-modal.active {
+	pointer-events: all;
+	opacity: 1;
+}
+
+.win-modal__content.active {
+	opacity: 1;
+	font-size: large;
+	transform: scale(1);
+}
+

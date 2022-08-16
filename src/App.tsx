@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import BoardComponent from './components/board/BoardComponent'
 import WelcomeModal from './components/modals/welcome-modal/WelcomeModal'
+import WinModal from './components/modals/win-modal/WinModal'
 import MovesBar from './components/moves-bar/MovesBar'
 import StatusBar from './components/status-bar/StatusBar'
 import { Board } from './models/Board'
@@ -19,6 +20,7 @@ const App = () => {
 	const [currentMove, setCurrentMove] = useState<MoveLog | null>(null)
 
     const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true)
+    const [isWinModalOpen, setIsWinModalOpen] = useState(false)
 
 	useEffect(() => {
 		start()
@@ -41,6 +43,7 @@ const App = () => {
 	return (
 		<div className="global-container">
 			<div className="elements-container">
+                <WinModal isOpen={isWinModalOpen} setIsOpen={setIsWinModalOpen} winner={board.winner} restart={start}/>
                 <WelcomeModal isOpen={isWelcomeModalOpen} setIsOpen={setIsWelcomeModalOpen} />
 				<BoardComponent
 					board={board}

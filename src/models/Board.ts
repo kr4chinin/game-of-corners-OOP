@@ -4,6 +4,7 @@ import { Unit } from './Unit'
 
 export class Board {
 	squares: Square[][] = []
+	winner: string | null = null
 
 	public initSquares() {
 		for (let i = 0; i < 8; i++) {
@@ -72,7 +73,7 @@ export class Board {
 			}
 		}
 
-        if (blackCounter === 16) console.log('Black won!')
-        if (whiteCounter === 16) console.log('White won!')
+		if (blackCounter === 16) this.winner = Colors.BLACK
+		if (whiteCounter === 16) this.winner = Colors.WHITE
 	}
 }
