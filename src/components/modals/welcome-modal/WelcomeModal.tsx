@@ -39,7 +39,7 @@ const WelcomeModal: FC<WelcomeModalProps> = ({ isOpen, setIsOpen }) => {
 				<div className="modal__body">
 					<ul>
 						<li>
-							You <span className="blue">goal</span> is to move all your units
+							Your <span className="blue">goal</span> is to move all your units
 							to the enemy's corner, you can move forward / backwards or jump
 							over 1 unit
 						</li>
@@ -55,7 +55,7 @@ const WelcomeModal: FC<WelcomeModalProps> = ({ isOpen, setIsOpen }) => {
 						</li>
 						<li>
 							On the <span className="red">sidebar</span> you will see whose
-							turn is now and movements log.
+							turn is now and movements log
 						</li>
 						<li>
 							A <span className="blue">special pop-up</span> will be shown if
