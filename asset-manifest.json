@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/game-of-corners-OOP/static/css/main.800dba6b.css",
+    "main.js": "/game-of-corners-OOP/static/js/main.d64f23fa.js",
+    "static/media/ComicNeue-Regular.ttf": "/game-of-corners-OOP/static/media/ComicNeue-Regular.f6e8f457de11c548d697.ttf",
+    "static/media/white-unit.png": "/game-of-corners-OOP/static/media/white-unit.454a8bdad59e3210caf3.png",
+    "static/media/ComicNeue-Bold.ttf": "/game-of-corners-OOP/static/media/ComicNeue-Bold.a068c58b0b82fcd0ffe6.ttf",
+    "static/media/black-unit.png": "/game-of-corners-OOP/static/media/black-unit.54a6ddfcf75d939a19a6.png",
+    "index.html": "/game-of-corners-OOP/index.html",
+    "main.800dba6b.css.map": "/game-of-corners-OOP/static/css/main.800dba6b.css.map",
+    "main.d64f23fa.js.map": "/game-of-corners-OOP/static/js/main.d64f23fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.800dba6b.css",
+    "static/js/main.d64f23fa.js"
+  ]
+}
