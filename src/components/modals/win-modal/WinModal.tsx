@@ -1,6 +1,6 @@
 import './WinModal.scss'
 import { createPortal } from 'react-dom'
-import { FC, useEffect, useState } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 
 interface WinModalProps {
 	isOpen: boolean
@@ -15,28 +15,28 @@ const WinModal: FC<WinModalProps> = ({
 	winner,
 	restart
 }) => {
+    const [winnerColor, setWinnerColor] = useState('')
+
+	const handleRestart = useCallback(() => {
+		setIsOpen(false)
+		setWinnerColor('')
+		restart()
+	}, [restart, setWinnerColor, setIsOpen])
+
 	useEffect(() => {
 		const closeOnEscapeKey = (e: KeyboardEvent) => {
 			if (e.key === 'Escape') handleRestart()
 		}
 		document.body.addEventListener('keydown', closeOnEscapeKey)
 		return () => document.body.removeEventListener('keydown', closeOnEscapeKey)
-	}, [setIsOpen])
-
-	const [winnerColor, setWinnerColor] = useState('')
+	}, [setIsOpen, handleRestart])
 
 	useEffect(() => {
 		if (winner) {
 			setIsOpen(true)
 			setWinnerColor(winner)
 		}
-	}, [winner])
-
-	function handleRestart() {
-		setIsOpen(false)
-		setWinnerColor('')
-		restart()
-	}
+	}, [winner, setIsOpen])
 
 	return createPortal(
 		<div
