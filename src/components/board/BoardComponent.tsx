@@ -36,8 +36,8 @@ const BoardComponent: FC<BoardComponentProps> = ({
 			swapPlayer()
 			selectedSquare.moveFigure(square)
 			setCurrentMove({
-                fromX: selectedSquare.x,
-                fromY: selectedSquare.y,
+				fromX: selectedSquare.x,
+				fromY: selectedSquare.y,
 				toX: square.x,
 				toY: square.y,
 				player: currentPlayer,
@@ -65,6 +65,10 @@ const BoardComponent: FC<BoardComponentProps> = ({
 
 	useEffect(() => {
 		highlightSquares()
+		// selectedSquare updates with every click on figure on board so board as
+		// well will be updated inside useEffect even without being in the deps array
+
+		// eslint-disable-next-line
 	}, [selectedSquare])
 
 	return (

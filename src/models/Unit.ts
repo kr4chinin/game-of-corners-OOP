@@ -168,7 +168,7 @@ export class Unit extends Figure {
 					break
 			}
 		}
-        
-        return false
+
+		return false
 	}
 }
