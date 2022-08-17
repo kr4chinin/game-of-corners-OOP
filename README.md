@@ -4,6 +4,8 @@
 
 This is a browser game which was made with **OOP approach** and which has a lot of interesting features to **improve** user experience. Try this app live on GitHub Pages here.
 
+![gameplay](https://user-images.githubusercontent.com/103210607/185084656-ceb838e7-e0cf-4981-a7b5-231d441d62f3.gif)
+
 ### Functionality
 
 Below you can see a **pseudo-schema** which shows how classes and objects interact:
