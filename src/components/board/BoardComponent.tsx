@@ -36,8 +36,10 @@ const BoardComponent: FC<BoardComponentProps> = ({
 			swapPlayer()
 			selectedSquare.moveFigure(square)
 			setCurrentMove({
-				x: square.x,
-				y: square.y,
+                fromX: selectedSquare.x,
+                fromY: selectedSquare.y,
+				toX: square.x,
+				toY: square.y,
 				player: currentPlayer,
 				timestamp: getCurrentTime()
 			})

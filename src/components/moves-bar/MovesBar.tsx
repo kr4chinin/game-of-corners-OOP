@@ -34,8 +34,9 @@ const MovesBar: FC<MovesBarProps> = ({ currentMove }) => {
 			{moves.map((move, index) => (
 				<p key={index}>
 					{move.player?.color === Colors.BLACK ? '⚫️' : '⚪️'}{' '}
-					{formatCoordinatesX(move.x)} {formatCoordinatesY(move.y)} {'->'}{' '}
-					<span className="gray-text">{move.timestamp}</span>
+					<span className='gray-text'>{formatCoordinatesX(move.fromX)}{formatCoordinatesY(move.fromY)}</span>{' '}
+					&#8212; {formatCoordinatesX(move.toX)}{formatCoordinatesY(move.toY)}{' '}
+					&rarr; <span className="gray-text">{move.timestamp}</span>
 				</p>
 			))}
 			<div ref={scrollTo} />
