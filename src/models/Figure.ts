@@ -9,11 +9,11 @@ export enum FigureNames {
 }
 
 export class Figure {
-	color: Colors
-	logo: typeof logo | null
-	square: Square
-	name: FigureNames
-	id: string
+	public color: Colors
+	public logo: typeof logo | null
+	public square: Square
+	public name: FigureNames
+	public id: string
 
 	constructor(color: Colors, square: Square) {
 		this.color = color
@@ -25,10 +25,10 @@ export class Figure {
 		this.id = uniqid()
 	}
 
-	canMove(target: Square): boolean {
+	public canMove(target: Square): boolean {
 		if (target.figure) return false
 		return true
 	}
 
-	moveFigure(target: Square) {}
+	public moveFigure(target: Square) {}
 }

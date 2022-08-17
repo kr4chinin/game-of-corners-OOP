@@ -3,8 +3,8 @@ import { Square } from './Square'
 import { Unit } from './Unit'
 
 export class Board {
-	squares: Square[][] = []
-	winner: string | null = null
+	public squares: Square[][] = []
+	public winner: string | null = null
 
 	public initSquares() {
 		for (let i = 0; i < 8; i++) {
@@ -40,7 +40,7 @@ export class Board {
 		return newBoard
 	}
 
-	addFigures() {
+	public addFigures() {
 		for (let y = 0; y < 4; y++) {
 			for (let x = 0; x < 4; x++) {
 				new Unit(Colors.WHITE, this.getSquare(x, y))
@@ -53,7 +53,7 @@ export class Board {
 		}
 	}
 
-	checkWin() {
+	public checkWin() {
 		let blackCounter = 0
 		let whiteCounter = 0
 

@@ -7,10 +7,10 @@ export class Square {
 	readonly x: number
 	readonly y: number
 	readonly color: Colors
-	board: Board
-	available: boolean
-	id: string
-	figure: Figure | null
+	public board: Board
+	public available: boolean
+	public id: string
+	public figure: Figure | null
 
 	constructor(
 		board: Board,
@@ -28,16 +28,16 @@ export class Square {
 		this.id = uniqid()
 	}
 
-	isEmpty(): boolean {
+	public isEmpty(): boolean {
 		return this.figure === null
 	}
 
-	setFigure(figure: Figure) {
+	public setFigure(figure: Figure) {
 		this.figure = figure
 		this.figure.square = this
 	}
 
-	moveFigure(target: Square) {
+	public moveFigure(target: Square) {
 		if (this.figure && this.figure.canMove(target)) {
 			this.figure.moveFigure(target)
 			target.setFigure(this.figure)

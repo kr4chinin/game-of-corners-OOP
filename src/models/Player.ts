@@ -1,7 +1,7 @@
 import { Colors } from './Colors'
 
 export class Player {
-	color: Colors
+	public color: Colors
 
 	constructor(color: Colors) {
 		this.color = color

@@ -11,7 +11,7 @@ export class Unit extends Figure {
 		this.name = FigureNames.UNIT
 	}
 
-	canMove(target: Square): boolean {
+	public canMove(target: Square): boolean {
 		if (!super.canMove(target)) return false
 
 		const dx = target.x - this.square.x
