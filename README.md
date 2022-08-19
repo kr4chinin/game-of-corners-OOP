@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a browser game which was made with **OOP approach** and which has a lot of interesting features to **improve** user experience. Try this app live on GitHub Pages here.
+This is a browser game which was made with **OOP approach** and which has a lot of interesting features to **improve** user experience. Try this app live on GitHub Pages [here](https://kr4chinin.github.io/game-of-corners-OOP/).
 
 ![gameplay](https://user-images.githubusercontent.com/103210607/185084656-ceb838e7-e0cf-4981-a7b5-231d441d62f3.gif)
 
