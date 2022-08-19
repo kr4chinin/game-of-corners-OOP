@@ -1,6 +1,6 @@
 import './WinModal.scss'
-import { createPortal } from 'react-dom'
 import { FC, useCallback, useEffect, useState } from 'react'
+import Portal from '../Portal'
 
 interface WinModalProps {
 	isOpen: boolean
@@ -15,7 +15,7 @@ const WinModal: FC<WinModalProps> = ({
 	winner,
 	restart
 }) => {
-    const [winnerColor, setWinnerColor] = useState('')
+	const [winnerColor, setWinnerColor] = useState('')
 
 	const handleRestart = useCallback(() => {
 		setIsOpen(false)
@@ -38,34 +38,37 @@ const WinModal: FC<WinModalProps> = ({
 		}
 	}, [winner, setIsOpen])
 
-	return createPortal(
-		<div
-			className={!isOpen ? 'win-modal' : 'win-modal active'}
-			onClick={handleRestart}
-		>
+	return (
+		<Portal>
 			<div
-				className={!isOpen ? 'win-modal__content' : 'win-modal__content active'}
-				onClick={e => e.stopPropagation()}
+				className={!isOpen ? 'win-modal' : 'win-modal active'}
+				onClick={handleRestart}
 			>
-				<div className="close-icon-container">
-					<p className="close-icon" onClick={handleRestart}>
-						❌
+				<div
+					className={
+						!isOpen ? 'win-modal__content' : 'win-modal__content active'
+					}
+					onClick={e => e.stopPropagation()}
+				>
+					<div className="close-icon-container">
+						<p className="close-icon" onClick={handleRestart}>
+							❌
+						</p>
+					</div>
+					<p className="win-modal-body">
+						<span className="warning-text">{winnerColor} player won!</span>{' '}
+						Congratulations! 🎉
+					</p>
+					<p className="restart-message">
+						Press{' '}
+						<span className="restart-btn" onClick={handleRestart}>
+							here
+						</span>{' '}
+						to restart the game!
 					</p>
 				</div>
-				<p className="win-modal-body">
-					<span className="warning-text">{winnerColor} player won!</span>{' '}
-					Congratulations! 🎉
-				</p>
-				<p className="restart-message">
-					Press{' '}
-					<span className="restart-btn" onClick={handleRestart}>
-						here
-					</span>{' '}
-					to restart the game!
-				</p>
 			</div>
-		</div>,
-		document.getElementById('win-portal')!
+		</Portal>
 	)
 }
 

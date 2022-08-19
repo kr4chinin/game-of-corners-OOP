@@ -1,14 +1,11 @@
 @import '../../../assets/fonts/ComicNeue/ComicNeue.scss';
 @import '../welcome-modal/WelcomeModal.scss';
+@import '../overlay';
 
 .win-modal {
 	@include flex-centered-content();
-	opacity: 0;
-	inset: 0;
-	position: fixed;
-	background: rgba(0, 0, 0, 0.511);
+	@include overlay();
 	transition: 0.6s;
-	pointer-events: none;
 }
 
 .win-modal__content {
